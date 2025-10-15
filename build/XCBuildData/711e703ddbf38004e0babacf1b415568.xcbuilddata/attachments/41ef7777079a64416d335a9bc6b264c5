@@ -1,0 +1,15 @@
+{
+  "" : {
+    "const-values" : "/Users/sh050106/Desktop/TextEdit/build/TextEdit.build/Release/TextEdit.build/Objects-normal/arm64/TextEdit-master.swiftconstvalues",
+    "dependencies" : "/Users/sh050106/Desktop/TextEdit/build/TextEdit.build/Release/TextEdit.build/Objects-normal/arm64/TextEdit-master.d",
+    "diagnostics" : "/Users/sh050106/Desktop/TextEdit/build/TextEdit.build/Release/TextEdit.build/Objects-normal/arm64/TextEdit-master.dia",
+    "emit-module-dependencies" : "/Users/sh050106/Desktop/TextEdit/build/TextEdit.build/Release/TextEdit.build/Objects-normal/arm64/TextEdit-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/sh050106/Desktop/TextEdit/build/TextEdit.build/Release/TextEdit.build/Objects-normal/arm64/TextEdit-master-emit-module.dia",
+    "swift-dependencies" : "/Users/sh050106/Desktop/TextEdit/build/TextEdit.build/Release/TextEdit.build/Objects-normal/arm64/TextEdit-master.swiftdeps"
+  },
+  "/Users/sh050106/Desktop/TextEdit/TextEdit/main.swift" : {
+    "index-unit-output-path" : "/TextEdit.build/Release/TextEdit.build/Objects-normal/arm64/main.o",
+    "llvm-bc" : "/Users/sh050106/Desktop/TextEdit/build/TextEdit.build/Release/TextEdit.build/Objects-normal/arm64/main.bc",
+    "object" : "/Users/sh050106/Desktop/TextEdit/build/TextEdit.build/Release/TextEdit.build/Objects-normal/arm64/main.o"
+  }
+}

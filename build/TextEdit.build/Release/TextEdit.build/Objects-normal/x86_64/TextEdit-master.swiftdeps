@@ -1,0 +1,6 @@
+version: "Apple Swift version 6.1 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)"
+options: "ac2fe3725630b5f3cc1475b5c77f1ff68583c464fa8ec273bffcf8e8d56279bc"
+build_start_time: [1760560608, 645344000]
+build_end_time: [1760560609, 706958000]
+inputs:
+  "/Users/sh050106/Desktop/TextEdit/TextEdit/main.swift": [1760560576, 59795081]
