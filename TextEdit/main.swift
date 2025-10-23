@@ -64,7 +64,7 @@ func getLastLine(buffer: [UInt8]) -> String {
     return getString(buffer: Array(buffer[lastReturnIndex...]))
 }
 
-func handleChar(byte: UInt8) {
+func handleUnicodeCharacter(byte: UInt8) {
     if byte == 10 || (byte >= 32 && byte < 127) { // Characters and Enter
         buffer.append(byte)
         print("\(String(UnicodeScalar(byte)))",terminator: "")
@@ -102,29 +102,38 @@ func handleChar(byte: UInt8) {
     fflush(stdout)
 }
 
+func isBitSetGen(position: Int) -> (UInt8) -> Bool {
+    func isBitSet(byte: UInt8) -> Bool {
+        let mask: UInt8 = 1
+        return ((mask << position) & byte) != 0
+    }
+    return isBitSet
+}
+
 func capture() {
-    var byte :UInt8 = 0
+    var byte: UInt8 = 0
+    let isSingleWidth = isBitSetGen(position: 7)
+    let isContinuation = isBitSetGen(position: 6)
     let bytesRead = read(STDIN_FILENO, &byte, 1)
-    if bytesRead == 1 {
+    if bytesRead > 0{
         if byte == 0x13 {                // Ctrl+S (ASCII 19, 0x13)
-            print("\n✅ Ctrl+S detected!")
             do{
                 try getString(buffer: buffer).write(to: fileURL, atomically: true, encoding: .utf8)
             } catch {
                 print("File did not save!")
             }
-            restoreTerminalAndExit(0)
         } else if byte == 0x03 {         // Ctrl+C (ASCII 3)
             print("\nInterrupted (Ctrl+C). Exiting.")
             restoreTerminalAndExit(0)
         } else {
-            handleChar(byte: byte)
+            handleUnicodeCharacter(byte: byte)
         }
     } else {
         // read returned <= 0 -> likely EOF or error, restore and exit
         restoreTerminalAndExit(0)
     }
 }
+
 while true{
     capture()
 }
